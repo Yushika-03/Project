@@ -1,0 +1,246 @@
+html{scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)60%,rgba(0, 0, 0, 0.5)60%), url(Image/iips/iips.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+
+  
+   
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+.menu {
+    flex: 2;
+    text-align: right;
+
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content{
+    width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    color:#fff;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin-left: 0px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content span{
+    color: #59b9b1;
+    font-size: 65px
+}
+
+
+.content .cn{
+    width: 160px;
+    height: 40px;
+   
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+    background-color:rgb(55, 111, 116);
+    color:rgb(255, 255, 255);
+    
+}
+
+.content .cn a{
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.cn:hover{
+    background: #ffffff;
+    color: #000000; 
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        text-align: left;
+    }
+
+    .menu ul {
+        padding-left: 20px;
+    }
+
+    .menu ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+.content h1, .content p {
+    opacity: 0; /* Initially hide the elements */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.content h1 {
+    animation: fadeInH1 1s forwards; /* Apply animation to h1 */
+    animation-delay: 0.5s; /* Delay for h1 */
+}
+
+.content p {
+    animation: fadeInP 1s forwards; /* Apply animation to p */
+    animation-delay: 1s; /* Delay for p */
+}
+
+
+@keyframes fadeInH1 {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInP {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+
+.about-us {
+    margin-top: 5px;
+    padding: 50px;
+}
+
+.about-us{
+    background-color: rgba(143, 145, 145, 0.575);
+  
+}
+.about-us img{
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.about-us h2{
+   
+    font-family: sans-serif;
+    font-size: 50px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+  
+
+}
+.about-content {
+    justify-content:center;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+
+/* Add this CSS for hover effect */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-content {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+    color:beige;
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    opacity: 0;
+    transition: .5s;
+   
+}
+
+.hover-content p {
+    margin-bottom: 20px;
+}
+
+.image-container:hover .hover-content {
+    opacity: 1;
+    max-height: var(--card-height-large-screen);
+  
+}

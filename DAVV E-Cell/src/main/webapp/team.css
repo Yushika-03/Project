@@ -1,0 +1,581 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   width: 100%;
+}
+
+/* Header Styles */
+header {
+    
+   /* background-color: rgba(40, 40, 40, 0.9); Semi-transparent dark gray background */
+    color: #ffffff; /* White text */
+    padding: 5px 20px;
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Ensure the navbar is positioned relative */
+    z-index: 100000; /* Set a higher z-index to ensure it appears above the background image */
+    width: 100%;
+    transition: 0.8s;
+}
+
+header.sticky{
+    padding : 5px 100px;
+    background: #333;
+
+}
+
+
+
+
+
+.logo-container {
+    max-width: 100px; /* Adjust according to your logo size */
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+   margin-left: auto; /* Push to the right side */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+  margin-top: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px; 
+    transition: color 0.3s ease;
+    
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.join-btn {
+    background-color:  #ffd700; /* Blue color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.join-btn:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Adjust according to your header height */
+        left: 0;
+        background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark gray background */
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1; /* Ensure the nav links appear above the background image */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .join-btn {
+        margin-top: 10px; /* Add space between button and nav links */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on mobile */
+    }
+}
+    
+    
+.bgImage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("Image/operation1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fix the background image */
+    background-repeat: no-repeat;
+    overflow: hidden; /* Ensure the gradient doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.bgImage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Linear gradient */
+    z-index: 1;
+}
+
+
+
+
+.content {
+    position: relative;
+    margin-top:  150px;
+    z-index: 2;
+    color: whitesmoke;
+    text-align: center;
+    opacity: 0; /* Initially hide the content */
+    animation: fadeIn 1s forwards; /* Apply the fadeIn animation */
+
+}
+
+.content h1 {
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+.content h1 span {
+    color: #edb80c;
+}
+
+.content p {
+    font-size: 18px;
+    width: 80%;
+    max-width: 600px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(0px); /* Initial position */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(100px); /* Final position */
+    }
+}
+
+
+
+/*------------animation section of bgimage class content---------------------*/
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.content h1, .content p, .content button {
+    opacity: 0; /* Initially hide the elements */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.content h1 {
+    animation: fadeInH1 1s forwards; /* Apply animation to h1 */
+    animation-delay: 0.5s; /* Delay for h1 */
+}
+
+.content p {
+    animation: fadeInP 1s forwards; /* Apply animation to p */
+    animation-delay: 1s; /* Delay for p */
+}
+
+.content button {
+    animation: fadeInButton 1s forwards; /* Apply animation to button */
+    animation-delay: 1.5s; /* Delay for button */
+}
+
+@keyframes fadeInH1 {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInP {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+
+
+
+
+
+
+
+/*-------------------------------------------------*/
+  
+.footer {
+   
+    background-color: #333; 
+    color: #edb80c; 
+    padding: 0 0; /* Adjust padding for better spacing */
+    bottom: 0;
+   z-index: 1;
+   position:relative;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    text-align: center; 
+}
+
+.footer p {
+  bottom: 0;
+}
+.footer .row{
+    width: 85%;
+   margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    justify-content: left;
+}
+.footer .row .col-1{
+  margin-bottom: 20px;
+    margin-top: 5px;
+}
+.footer .row .col-2{
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.col-2 ul li {
+    list-style: none;
+    margin-bottom:12px;
+    color:white;
+}
+.col-2 ul li a {
+    text-decoration: none;
+    margin-bottom:12px;
+    color:white;
+}
+
+/* college team */
+#heading{
+    text-transform: uppercase;
+   background-image: linear-gradient(
+     -225deg,
+     #e2daff 0%,
+     #ff9100 29%,
+     #eb13ff 67%,
+     #ff0000 100%
+   );
+   background-size: auto auto;
+   background-clip: border-box;
+   background-size: 200% auto;
+   color: #fff;
+   background-clip: text;
+   /* text-fill-color: transparent; */
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: textclip 2s linear infinite;
+   display: inline-block;
+       font-size: 50px;
+       margin-top: 30px;
+ }
+ 
+ @keyframes textclip {
+   to {
+     background-position: 200% center;
+   }
+ }
+
+*{
+margin: 0;
+padding: 0;
+font-family: 'popins', sans-serif;
+box-sizing: border-box;
+}
+.Colteam{
+    margin: 0;
+    padding: 0;
+    font-family: 'popins', sans-serif;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.timeline{
+    
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+
+}
+.timeContainer{
+    padding: 10px 50px ;
+    position: relative;
+    width: 50%;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+@keyframes movedown{
+    0%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.timeContainer:nth-child(1){
+    animation-delay: 0s;
+}
+.timeContainer:nth-child(2){
+    animation-delay: 1s;
+}
+.timeContainer:nth-child(3){
+    animation-delay: 2s;
+}
+.timeContainer:nth-child(4){
+    animation-delay: 3s;
+}
+.timeContainer:nth-child(5){
+    animation-delay: 4s;
+}
+.timeContainer:nth-child(6){
+    animation-delay: 5s;
+}
+.textBox{
+    padding: 20px 30px;
+    background: white;
+    position: relative;
+    border-radius: 6px;
+    font-size: 15px;
+}
+.left-Con{
+    left: 0;
+}
+.right-Con{
+    left: 50%;
+}
+.timeContainer img{
+    position: absolute;
+    width: 40px;
+    border-radius: 50%;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+.right-Con img{
+    left: -20px;
+}
+.timeline::after{
+    content:'';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #ffd900b6;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    animation: moveline 6s linear forwards;
+}
+@keyframes moveline{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
+.textBox h2{
+    font-weight: 600;
+}
+.tectBox small{
+    display: inline-block;
+    margin-bottom: 15px;
+
+}
+.left-Con-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;  
+    border-left: 15px solid #fff;
+    right: -15px ;
+}
+.right-Con-arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 28px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    left: -15px ;
+}
+@media screen and (max-width: 768px){
+    .timeline{
+        margin:50px auto;
+    }
+    .timeline::after{
+        left: 31px;
+    }
+    .timeContainer{
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+    .textBox{
+        font-size: 13px;
+    }
+    .textBox small{
+        margin-bottom: 10px;
+    }
+    .right-Con{
+        left: 0;
+    }
+    .left-Con img,.right-Con img{
+        left: 10px;
+    }
+    .left-Con-arrow,.right-Con-arrow{
+        border-right: 15px solid #fff;
+        border-left: 0;
+        left: -15px;
+    }
+    
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    max-width: 90%;
+    width: 500px; 
+    max-height: 90%;
+    overflow-y: auto; 
+}
+
+.popup-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.popup-image {
+    width: 80px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 10px; /* Circular shape */
+    margin: 10px; /* Add spacing between images */
+}
+
+.view-more {
+    background-color:  #ffd700; /* Blue color */
+    color: #000000; /* White text */
+    padding: 8px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+}
+
+.view-more:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+    color: #fff;
+}
+
+.popup .close{
+    cursor: pointer;
+    color: #ffd700;
+   font-size: 30px;
+   top: 10px;
+   right: 15px;
+   position: absolute;
+}

@@ -1,0 +1,283 @@
+@charset "ISO-8859-1";
+
+@charset "ISO-8859-1";
+
+/* header */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Header Styles */
+header {
+    
+   /* background-color: rgba(40, 40, 40, 0.9); Semi-transparent dark gray background */
+    color: #ffffff; /* White text */
+    padding: 5px 20px;
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Ensure the navbar is positioned relative */
+    z-index: 100000; /* Set a higher z-index to ensure it appears above the background image */
+    width: 100%;
+    transition: 0.8s;
+}
+
+header.sticky{
+    padding : 5px 100px;
+    background: #333;
+
+
+}
+
+header.sticky.nav-links li a{
+    color: #333;
+}
+
+.logo-container {
+    max-width: 100px; /* Adjust according to your logo size */
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left:auto; /* Push to the right side */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+  margin-top: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px; 
+    transition: color 0.3s ease;
+    
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.join-btn {
+    background-color:  #ffd700; /* Blue color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.join-btn:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Adjust according to your header height */
+        left: 0;
+        background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark gray background */
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1; /* Ensure the nav links appear above the background image */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .join-btn {
+        margin-top: 10px; /* Add space between button and nav links */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on mobile */
+    }
+
+    .nav-toggle:focus {
+        background-color: transparent !important; /* Set the background color to transparent on focus */
+    }
+}
+    
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(45deg, #333333, #666666);
+    font-variant: small-caps;
+  }
+   */
+ 
+  .registration-container {
+   
+    display:flex;    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-bottom: 50px;
+    padding-top: 400px;
+  }
+  
+  .registration-form {
+    margin-top: -70px;
+    margin-bottom: 70px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%;
+    padding-top:50px;
+    padding-bottom: 20px;
+    
+  }
+  
+  .registration-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+   display: flex;
+   justify-content: space-between;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 48%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffd700;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ffd900b6;
+  }
+
+  /* footer */
+
+  .footer {
+    margin-top: -300px;
+    background-color: #333; 
+    color: #edb80c; 
+    padding: 0 0; /* Adjust padding for better spacing */
+    bottom: 0;
+    z-index: 1;
+    position:relative;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    margin-top: 420px;
+    text-align: center; 
+}
+
+.footer p {
+  bottom: 0;
+}
+.footer .row{
+    width: 85%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    justify-content: left;
+}
+.footer .row .col-1{
+  margin-bottom: 20px;
+    margin-top: 5px;
+}
+.footer .row .col-2{
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.col-2 ul li {
+    list-style: none;
+    margin-bottom:12px;
+    color:white;
+}
+.col-2 ul li a {
+    text-decoration: none;
+    margin-bottom:12px;
+    color:white;
+}
+
+
+
+
+
+
+

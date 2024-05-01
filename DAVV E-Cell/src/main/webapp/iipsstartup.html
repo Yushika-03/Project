@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> IMS COLLEGE WORKPLACE</title>
+  <link rel="stylesheet" href="iipsstartup.css">
+  <link rel="stylesheet" href="iipsgetstarted.css">
+
+  <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 85%;
+    
+      z-index: 9999;
+      overflow: auto;
+    
+    }
+
+    .popup-content {
+      position: relative;
+      margin: 10% auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .popup-image {
+      width: 50%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .popup-description {
+      color: #333;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="container">
+        <h1>Workplace</h1>
+        <p>Empowering Innovations, Igniting Minds</p><br>
+        <div>
+          <a  id="getStartedButton" class="btn">Get Started<i class="fas fa-long-arrow-alt-right"></i></a>
+          <a href="#" class="btn"> Apply<i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup1', 'Image/marketing.jpg', 'Elevate brand with our innovative solutions. Let\'s connect and take your business to new heights ! Experience excellence redefined with our unparalleled solutions.'); return false;"></a>
+      <img src="Image/marketing.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+         <h2 class="news-card__title">Marketing</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Elevate brand with our innovative solutions. Let's connect and take your business to new heights !"Experience excellence redefined with our unparalleled solutions.</p>
+          <a href="#" class="button-85"> Apply<i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup2', 'Image/media.jpg', 'Guiding brands through the dynamic landscape of media, our management team orchestrates a symphony of visibility, ensuring every note resonates with impact and relevance.'); return false;"></a>
+      <img src="Image/media.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">Media</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Guiding brands through the dynamic landscape of media, our management team orchestrates a symphony of visibility, ensuring every note resonates with impact and relevance.</p>
+          <a href="#" class="button-85">Apply <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup3', 'Image/content.jpg', 'Words that resonate, stories that captivate—crafted by our dynamic content team. With every syllable, we weave narratives that spark inspiration and ignite imagination.'); return false;"></a>
+      <img src="Image/content.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">Content</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Words that resonate, stories that captivate—crafted by our dynamic content team.
+            With every syllable, we weave narratives that spark inspiration and ignite imagination.</p>
+          <a href="#" class="button-85">Apply<i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup4', 'Image/pr.jpg', 'Crafting compelling narratives and fostering meaningful relationships, our PR management team is the guardian of reputation, shaping perceptions and steering conversations with finesse.'); return false;"></a>
+      <img src="Image/pr.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">PR</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Crafting compelling narratives and fostering meaningful relationships, our PR management team is the guardian of reputation, shaping perceptions and steering conversations with finesse.</p>
+          <a href="#" class="button-85">Apply<i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup5', 'Image/operation.jpg', 'At the heart of our organization\'s success lies the meticulous orchestration of processes and resources by our operation management team, driving innovation and excellence at every turn.'); return false;"></a>
+      <img src="Image/operation.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">Operation</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">At the heart of our organization's success lies the meticulous orchestration of processes and resources by our operation management team, driving innovation and excellence at every turn.</p>
+          <a href="#" class="button-85">Apply <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="news-card">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup6', 'Image/design.jpg', 'Where creativity meets precision, our design team crafts visions into masterpieces. Elevating aesthetics with every stroke, our design team brings dreams to life.'); return false;"></a>
+      <img src="Image/design.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">Design</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Where creativity meets precision, our design team crafts visions into masterpieces. Elevating aesthetics with every stroke, our design team brings dreams to life.</p>
+          <a href="#" class="button-85">Apply<i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card" style="height: 300px;">
+      <a href="#" class="news-card__card-link" onclick="openPopup('popup7', 'Image/design1.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, iste odio, facilis ducimus minima repellendus molestiae doloribus maxime repellat explicabo cum nam quis ad. Dolore tempore labore optio possimus autem!'); return false;"></a>
+      <img src="Image/design1.jpg" alt="" class="news-card__image">
+      <div class="news-card__text-wrapper">
+        <h2 class="news-card__title">Start up</h2>
+        <div class="news-card__details-wrapper">
+          <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, iste odio, facilis ducimus minima repellendus molestiae doloribus maxime repellat explicabo cum nam quis ad. Dolore tempore labore optio possimus autem!</p>
+          <a href="#" class="button-85">Apply <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Hidden pop-ups for each card -->
+<div id="popup1" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup1')">&times;</span>
+    <img id="popupImage1" src="" alt="" class="popup-image">
+    <div id="popupDescription1" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup2" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup2')">&times;</span>
+    <img id="popupImage2" src="" alt="" class="popup-image">
+    <div id="popupDescription2" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup3" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup3')">&times;</span>
+    <img id="popupImage3" src="" alt="" class="popup-image">
+    <div id="popupDescription3" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup4" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup4')">&times;</span>
+    <img id="popupImage4" src="" alt="" class="popup-image">
+    <div id="popupDescription4" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup5" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup5')">&times;</span>
+    <img id="popupImage5" src="" alt="" class="popup-image">
+    <div id="popupDescription5" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup6" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup6')">&times;</span>
+    <img id="popupImage6" src="" alt="" class="popup-image">
+    <div id="popupDescription6" class="popup-description"></div>
+  </div>
+</div>
+
+<div id="popup7" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('popup7')">&times;</span>
+    <img id="popupImage7" src="" alt="" class="popup-image">
+    <div id="popupDescription7" class="popup-description"></div>
+  </div>
+</div>
+
+<!-- Script to handle button click and scroll to the "Get Started" section -->
+<script>
+    document.getElementById("getStartedButton").addEventListener("click", function() {
+        // Scroll to the "Get Started" section smoothly
+        document.getElementById("getstarted").scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Function to handle click on each news card
+    function openPopup(cardId, imageSrc, description) {
+      document.getElementById("popupImage" + cardId.slice(-1)).src = imageSrc;
+      document.getElementById("popupDescription" + cardId.slice(-1)).innerHTML = description;
+      document.getElementById(cardId).style.display = "block";
+    }
+
+    // Function to close the popup
+    function closePopup(cardId) {
+      document.getElementById(cardId).style.display = "none";
+    }
+</script>
+
+<!-- Include getstarted.html content -->
+<div id="getstarted">
+    <!-- Paste the content of getstarted.html here -->
+</div>
+
+</body>
+</html>

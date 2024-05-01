@@ -1,0 +1,363 @@
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Header Styles */
+header {
+    
+   /* background-color: rgba(40, 40, 40, 0.9); Semi-transparent dark gray background */
+    color: #ffffff; /* White text */
+    padding: 5px 20px;
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Ensure the navbar is positioned relative */
+    z-index: 100000; /* Set a higher z-index to ensure it appears above the background image */
+    width: 100%;
+    transition: 0.8s;
+}
+
+header.sticky{
+    padding : 5px 100px;
+    background: #333;
+
+
+}
+
+header.sticky.nav-links li a{
+    color: #333;
+
+}
+
+
+
+
+.logo-container {
+    max-width: 100px; /* Adjust according to your logo size */
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+   margin-left: auto; /* Push to the right side */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+  margin-top: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px; 
+    transition: color 0.3s ease;
+    
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.join-btn {
+    background-color:  #ffd700; /* Blue color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.join-btn:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Adjust according to your header height */
+        left: 0;
+        background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark gray background */
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1; /* Ensure the nav links appear above the background image */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .join-btn {
+        margin-top: 10px; /* Add space between button and nav links */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on mobile */
+    }
+}
+    
+
+.footer {
+   
+    background-color: #333; 
+    color: #edb80c; 
+    padding: 0 0; /* Adjust padding for better spacing */
+    bottom: 0;
+   z-index: 1;
+   position:relative;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    text-align: center; 
+}
+
+.footer p {
+  bottom: 0;
+}
+.footer .row{
+    width: 85%;
+   margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    justify-content: left;
+}
+.footer .row .col-1{
+  margin-bottom: 20px;
+    margin-top: 5px;
+}
+.footer .row .col-2{
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.col-2 ul li {
+    list-style: none;
+    margin-bottom:12px;
+    color:white;
+}
+.col-2 ul li a {
+    text-decoration: none;
+    margin-bottom:12px;
+    color:white;
+}
+
+
+
+
+
+
+
+/* Your CSS for Startup Page Here */
+/* Styling for Slider Section */
+.slider-section {
+    
+    padding: 50px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.slider-section h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #edb80c;
+}
+
+
+.slider-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #edb80c;
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 50px;
+    max-width: 800px;
+    border-radius: 20px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Add a class for hiding inactive slides */
+.slide:not(.active) {
+    display: none;
+}
+
+/* Style for slide content */
+.slide-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.slide-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 16px;
+}
+
+
+/* Animation for Fade In */
+.fadeIn {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Additional Cards Section Styles */
+.additional-cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.additional-cards-section .card {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    animation: fadeInCard 1s ease forwards;
+}
+
+.additional-cards-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Define fadeInCard animation */
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Button Styles */
+.apply-button {
+    background-color: #ffd700; /* Yellow color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Adjust margin as needed */
+}
+
+.apply-button:hover {
+    background-color: #ffd900b6; /* Darker shade on hover */
+}
+
+/* Card Image Styles */
+.card img {
+    width: 100%; /* Ensure images fill the card */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Card Content Styles */
+.card h2,
+.card p {
+    margin: 10px 0;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    .cards-section {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+    
+    .card {
+        width: calc(100% - 40px); /* Adjust width for smaller screens */
+        margin: 20px; /* Adjust margin for better spacing */
+    }
+}

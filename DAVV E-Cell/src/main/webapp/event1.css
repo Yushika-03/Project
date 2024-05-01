@@ -1,0 +1,512 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Header Styles */
+header {
+    
+   /* background-color: rgba(40, 40, 40, 0.9); Semi-transparent dark gray background */
+    color: #ffffff; /* White text */
+    padding: 5px 20px;
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Ensure the navbar is positioned relative */
+    z-index: 100000; /* Set a higher z-index to ensure it appears above the background image */
+    width: 100%;
+    transition: 0.8s;
+}
+
+header.sticky{
+    padding : 5px 100px;
+    background: #333;
+
+
+}
+
+header.sticky.nav-links li a{
+    color: #333;
+
+}
+
+
+
+
+
+.logo-container {
+    max-width: 100px; /* Adjust according to your logo size */
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+   margin-left: auto; /* Push to the right side */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+  margin-top: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px; 
+    transition: color 0.3s ease;
+    
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.join-btn {
+    background-color:  #ffd700; /* Blue color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.join-btn:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Adjust according to your header height */
+        left: 0;
+        background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark gray background */
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1; /* Ensure the nav links appear above the background image */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .join-btn {
+        margin-top: 10px; /* Add space between button and nav links */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on mobile */
+    }
+}
+    
+
+.bgImage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("Image/bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fix the background image */
+    background-repeat: no-repeat;
+    overflow: hidden; /* Ensure the gradient doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.bgImage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Linear gradient */
+    z-index: 1;
+}
+
+
+
+
+.content {
+    position: relative;
+    margin-top:  150px;
+    z-index: 2;
+    color: whitesmoke;
+    text-align: center;
+    opacity: 0; /* Initially hide the content */
+    animation: fadeIn 1s forwards; /* Apply the fadeIn animation */
+
+}
+
+.content h1 {
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+.content h1 span {
+    color: #edb80c;
+}
+
+.content p {
+    font-size: 18px;
+    width: 80%;
+    max-width: 600px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(0px); /* Initial position */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(100px); /* Final position */
+    }
+}
+
+
+
+/*------------animation section of bgimage class content---------------------*/
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.content h1, .content p, .content button {
+    opacity: 0; /* Initially hide the elements */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.content h1 {
+    animation: fadeInH1 1s forwards; /* Apply animation to h1 */
+    animation-delay: 0.5s; /* Delay for h1 */
+}
+
+.content p {
+    animation: fadeInP 1s forwards; /* Apply animation to p */
+    animation-delay: 1s; /* Delay for p */
+}
+
+.content button {
+    animation: fadeInButton 1s forwards; /* Apply animation to button */
+    animation-delay: 1.5s; /* Delay for button */
+}
+
+@keyframes fadeInH1 {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInP {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+/*----------end animation---------------*/
+
+
+
+
+
+
+
+
+/* Slider Styles */
+/* Fade-in effect just behind the slider */
+.slider-fade-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 0;
+    animation: fadeInBackground 1s forwards;
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Slider Styles */
+.slider {
+    width: 80%; /* Adjust width as needed */
+    max-width: 500px; /* Set a maximum width for larger screens */
+    max-height: 400px;
+    border-radius: 30px;
+    margin: auto; /* Center the slider */
+    overflow: hidden;
+    position: relative;
+    margin-top: 50px; /* Adjust spacing */
+    z-index: 1;
+}
+
+.slide {
+    display: none;
+    width: 100%; /* Make slides fill the slider container */    margin: auto; /* Center the slide */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px; /* Rounded corners for images */
+    transition: transform 0.7s ease; /* Smooth transition on hover */
+}
+
+.slide:hover img {
+    transform: scale(1.05); /* Scale up the image on hover */
+}
+
+/* Animation for paragraph and heading */
+.slide-content {
+    position: absolute;
+    top: -50px; /* Initial position above the slide */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    z-index: 3;
+    opacity: 0; /* Initially hide the content */
+    animation: slideInContent 1s forwards;
+    width: 80%; /* Adjust width for responsiveness */
+    max-width: 400px; /* Set a maximum width for larger screens */
+}
+
+.slide.active .slide-content {
+    opacity: 1;
+}
+
+@keyframes slideInContent {
+    0% {
+        top: -50px; /* Initial position */
+        opacity: 0;
+    }
+    100% {
+        top: 50%; /* Final position */
+        opacity: 1;
+    }
+}
+
+.slide-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 16px;
+}
+
+
+/* Animation */
+.slide.active {
+    display: block;
+    /* animation: fadeInSlide 1s forwards; */
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Cards Styles */
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px; /* Adjust spacing */
+}
+
+.card {
+    width: 300px; /* Adjust card width */
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Move card up slightly on hover */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 20px 0 0; /* Rounded corners for the top */
+}
+
+.card-content {
+    padding: 20px;
+    background-color: #fff; /* Background color for content */
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 16px;
+    color: #333; /* Text color for description */
+}
+
+/* Animation for card content */
+.card:hover .card-content {
+    animation: fadeIn 0.5s ease; /* Apply fade-in animation on hover */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Final position */
+    }
+}
+
+
+
+
+ 
+.footer {
+   
+    background-color: #333; 
+    color: #edb80c; 
+    padding: 0 0; /* Adjust padding for better spacing */
+    bottom: 0;
+   z-index: 1;
+   position:relative;
+}
+
+.footer-content {
+    max-width: 1200px; 
+    text-align: center; 
+}
+
+.footer p {
+  bottom: 0;
+}
+.footer .row{
+    width: 85%;
+   margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    justify-content: left;
+}
+.footer .row .col-1{
+  margin-bottom: 20px;
+    margin-top: 5px;
+}
+.footer .row .col-2{
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.col-2 ul li {
+    list-style: none;
+    margin-bottom:12px;
+    color:white;
+}
+.col-2 ul li a {
+    text-decoration: none;
+    margin-bottom:12px;
+    color:white;
+}
+

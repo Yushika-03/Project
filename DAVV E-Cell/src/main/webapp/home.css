@@ -1,0 +1,771 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Header Styles */
+header {
+    
+   /* background-color: rgba(40, 40, 40, 0.9); Semi-transparent dark gray background */
+    color: #ffffff; /* White text */
+    padding: 5px 20px;
+    height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Ensure the navbar is positioned relative */
+    z-index: 100000; /* Set a higher z-index to ensure it appears above the background image */
+    width: 100%;
+    transition: 0.8s;
+}
+
+header.sticky{
+    padding : 5px 100px;
+    background: #333;
+
+
+}
+
+header.sticky.nav-links li a{
+    color: #333;
+}
+
+.logo-container {
+    max-width: 100px; /* Adjust according to your logo size */
+}
+
+.logo-container img{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+  }
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+   margin-left: auto; /* Push to the right side */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+  margin-top: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px; 
+    transition: color 0.3s ease;
+    
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.join-btn {
+    background-color:  #ffd700; /* Blue color */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    margin-top: -8px;
+}
+
+.join-btn:hover {
+    background-color:  #ffd900b6; /* Darker shade on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 69px; /* Adjust according to your header height */
+        left: 0;
+        background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark gray background */
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1; /* Ensure the nav links appear above the background image */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .join-btn {
+        margin-top: 10px; /* Add space between button and nav links */
+    }
+
+    .nav-toggle {
+        display: block; /* Show nav toggle button on mobile */
+    }
+}
+    
+
+.bgImage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("Image/davvimg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fix the background image */
+    background-repeat: no-repeat;
+    overflow: hidden; /* Ensure the gradient doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.bgImage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Linear gradient */
+    z-index: 1;
+}
+
+
+
+
+.content {
+    position: relative;
+    margin-top:  150px;
+    z-index: 2;
+    color: whitesmoke;
+    text-align: center;
+    opacity: 0; /* Initially hide the content */
+    animation: fadeIn 1s forwards; /* Apply the fadeIn animation */
+
+}
+
+.content h1 {
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+.content h1 span {
+    color: #edb80c;
+}
+
+.content p {
+    font-size: 18px;
+    width: 80%;
+    max-width: 600px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(0px); /* Initial position */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(100px); /* Final position */
+    }
+}
+
+
+
+/*------------animation section of bgimage class content---------------------*/
+
+/*
+@keyframes fadeIn {
+    0% {
+        opacity: 0; 
+    }
+    /* Start with opacity 0 */
+  /*  100% {
+        opacity: 1;
+     } 
+     /* Fully visible 
+    
+}*/
+
+.content h1, .content p, .content button {
+    opacity: 0; /* Initially hide the elements */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.content h1 {
+    animation: fadeInH1 1s forwards; /* Apply animation to h1 */
+    animation-delay: 0.5s; /* Delay for h1 */
+}
+
+.content p {
+    animation: fadeInP 1s forwards; /* Apply animation to p */
+    animation-delay: 1s; /* Delay for p */
+}
+
+.content button {
+    animation: fadeInButton 1s forwards; /* Apply animation to button */
+    animation-delay: 1.5s; /* Delay for button */
+}
+
+@keyframes fadeInH1 {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInP {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateX(-100px); /* Initial position slightly to the left */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* Final position */
+    }
+}
+
+/*----------end animation---------------*/
+
+
+.ecell-description
+{
+padding: 50px;
+background-color: #f8f9fa; /* Light gray background color */
+text-align: center;
+opacity: 0; /* Initially hidden */
+animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+.ecell-description h2 {
+    font-size: 32px;
+    color: #edb80c;
+    margin-bottom: 20px;
+}
+
+.ecell-description p {
+    font-size: 18px;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+
+
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+
+.heading {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000000; /* Adjust color as needed */
+    
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+}
+
+.card {
+    width: 350px; /* Increased width */
+    height: 400px; /* Increased height */
+    background-color: #fff;
+    border-radius: 20px; /* Increased border radius */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased box shadow */
+    margin: 20px; /* Increased margin */
+    padding: 30px; /* Increased padding */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Increased box shadow on hover */
+}
+
+.card h2 {
+    color: #333;
+    font-size: 24px; /* Increased font size */
+}
+
+.card p {
+    color: #666;
+    font-size: 18px; /* Increased font size */
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 40px); /* Adjusted width for smaller screens */
+        height: 300px; /* Adjusted height for smaller screens */
+        flex-basis: calc(100% - 20px);
+        margin: 20px; /* Adjusted margin for smaller screens */
+    }
+}
+
+
+/* Background Overlay Styles 
+.bgOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("Image/home/davvimg.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: -1; }/* Ensure it's behind other content */
+
+
+    .about-us-section {
+        padding: 50px;
+        background-color: #f8f9fa; /* Light gray background color */
+        text-align: center;
+        opacity: 0; /* Initially hidden */
+        animation: fadeIn 1s forwards; /* Apply fade-in animation */
+    }
+    
+    .about-us-section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #edb80c;
+    }
+    
+    .about-us-section p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #000000;
+    }
+    
+    /* Define the fadeIn animation */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0; /* Start with opacity 0 */
+        }
+        100% {
+            opacity: 1; /* Fully visible */
+        }
+    }
+   
+
+/*-------------About section animation--------------------------*/
+
+.about-us-section {
+    padding: 50px;
+    background-color: #f8f9fa; /* Light gray background color */
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.about-us-section h2, .about-us-section p {
+    opacity: 0; /* Initially hide the elements */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.about-us-section h2 {
+    animation: fadeInH2 1s forwards; /* Apply animation to h2 */
+    animation-delay: 0.5s; /* Delay for h2 */
+}
+
+.about-us-section p {
+    animation: fadeInP 1s forwards; /* Apply animation to p */
+    animation-delay: 1s; /* Delay for p */
+}
+
+
+
+@keyframes fadeInH2 {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateY(-50px); /* Initial position slightly above */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Final position */
+    }
+}
+
+@keyframes fadeInP {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateY(-50px); /* Initial position slightly above */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Final position */
+    }
+}
+
+
+.college-container {
+    position: relative; /* Ensure relative positioning */
+    z-index: 0; /* Set a lower z-index */
+    margin: 20px auto; 
+    max-width: 1200px; 
+   
+}
+   
+.college-container h1{
+    color: #edb80c;
+    margin-top: 50px;
+
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 20px auto; 
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    border-radius: 10px;
+} 
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth transition on hover */
+}
+
+.slide:hover img {
+    transform: scale(1.05); /* Scale up the image on hover */
+}
+
+
+.search-bar {
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    margin-right: 10px;
+    width: 70%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #ffd700;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #ffd900b6;
+}
+
+.college-box2 {
+    /* border: 1px solid #ddd; */
+   
+    padding: 10px 40px 10px 40px;
+    margin: 20px auto ; 
+    border-radius: 5px;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.4rem;
+    max-width: 1200px; 
+    background-color: #eceff2e2; /* Light gray background color */
+   opacity: 0; /* Initially hidden */
+  animation: fadeIn 2s forwards; /* Apply fade-in animation */
+
+}
+
+.table-active {
+    border-collapse: collapse;
+    width: 100%; 
+    margin-top: 20px;
+    
+}
+
+.table-active th, .table-active td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .college-box2 {
+        width: 90%; 
+    }
+} 
+
+  
+.footer {
+   margin-top: -250px;
+    background-color: #333; 
+    color: #edb80c; 
+    padding: 0 0; /* Adjust padding for better spacing */
+    bottom: 0;
+   z-index: 1;
+   position:relative;
+}
+
+.footer-content {
+    max-width: 1200px; 
+   margin-top: 420px;
+    text-align: center; 
+}
+
+.footer p {
+  bottom: 0;
+}
+.footer .row{
+    width: 85%;
+   margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* justify-content: center; */
+    justify-content: left;
+}
+.footer .row .col-1{
+  margin-bottom: 20px;
+    margin-top: 5px;
+}
+.footer .row .col-2{
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+.col-2 ul li {
+    list-style: none;
+    margin-bottom:12px;
+    color:white;
+}
+.col-2 ul li a {
+    text-decoration: none;
+    margin-bottom:12px;
+    color:white;
+}
+
+
+
+/* Popup Styles Notice */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    max-width: 90%;
+    width: 500px; 
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.popupcontent {
+    text-align: center;
+    height: 15rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.close-btn:hover {
+    color: #ffd700;
+}
+.popupbody {
+    padding: 1rem;
+    overflow: hidden;
+    max-height: 12rem;
+}
+
+.popupbody table {
+    width: 100%;
+
+}
+
+.popupbody table tr,
+.popupbody table td {
+    padding: 1rem;
+} 
+
+.popupbody table td a{
+    color:#edb80c;
+    text-decoration: none; 
+}
+.popupbody table tr th{
+ color: whitesmoke;
+}
+
+
+.all-notice{
+    float: left;
+}
+
+.all-notice a{
+    color: #edb80c; 
+    text-decoration: none;
+}
+
+ /* Fullscreen Popup Styles */
+ .fullscreen-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto; /* Enable manual scrolling */
+}
+
+.fullscreen-popup-content {
+    margin-top: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:700px;
+    max-width: 800px;
+  
+    max-height: calc(100% - 40px); /* Adjust as necessary */
+    background-color:#ffffff;
+    color: #000000;
+    z-index:1001;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* Enable manual scrolling */
+}
+
+.fullscreen-popup-content .popupbody {
+
+    max-height: 20rem;  
+    padding: 1rem;
+    /* max-height: 100%; */
+    overflow-y: auto;                                                                                                                       
+}
+/* 
+.fullscreen-popup-content.popupbody table tr th{
+    color: #000000;
+} */
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .fullscreen-popup-content {
+        width: 95%; /* Adjust as necessary for smaller screens */
+        max-width: 95%; /* Adjust as necessary for smaller screens */
+    }
+}
+
+/*--------------------------------------another css for college-slider--------------------------------*/
